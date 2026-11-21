@@ -1,0 +1,28 @@
+@model IEnumerable<RequestLogItem>
+
+@{
+    ViewData["Title"] = "Requests";
+}
+
+<div>
+    <h2>@ViewBag.Title</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Path</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Method</td>
+                    <td>@item.Path</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

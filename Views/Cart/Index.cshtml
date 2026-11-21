@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Shopping cart (Scoped)";
+}
+
+<div>
+    <h2>@ViewBag.Title</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Products</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><strong>_cart1</strong></td>
+                <td>
+                    @foreach (var item in ViewBag.Cart1)
+                    {
+                        <div>@item.Name - @item.Price</div>
+                    }
+                </td>
+                <td>@ViewBag.Cart1.Count</td>
+            </tr>
+            <tr>
+                <td><strong>_cart2</strong></td>
+                <td>
+                    @foreach (var item in ViewBag.Cart2)
+                    {
+                        <div>@item.Name - @item.Price</div>
+                    }
+                </td>
+                <td>@ViewBag.Cart2.Count</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Both references share one instance within a request. After reload the cart still has 2 products, not 4, because each request gets a new instance.</p>
+</div>
